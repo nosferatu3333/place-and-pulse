@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Place & Pulse | Tulum Group Trip Concierge</title>
+<meta name="description" content="Villa, transport, dining, wellness and experiences for group trips in Tulum — one concierge, one conversation.">
+
+<!--
+  Photography note: the live version of this site credits its photographers via
+  Wikimedia Commons / Unsplash. This rebuild is fully self-contained and does not
+  hotlink any external images, so every photographic block below is a CSS-only
+  gradient placeholder. Before launch, replace each marked block with properly
+  licensed destination/lifestyle photography and restore full photo credits
+  (see the footer "Photography credits" line).
+-->
+
+<style>
+  :root{
+    --teal-950:#0a2c2d;
+    --teal-900:#0f3d3e;
+    --teal-800:#154f50;
+    --teal-700:#1d6465;
+    --sand-50:#fbf8f2;
+    --sand-100:#f6efe4;
+    --sand-200:#eee0cb;
+    --coral-500:#e0725a;
+    --coral-600:#c85c46;
+    --ink:#1c2624;
+    --ink-soft:#4a5654;
+    --line:rgba(15,61,62,0.14);
+    --shadow-soft: 0 20px 50px -25px rgba(15,61,62,0.35);
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--sand-100);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:500;
+    line-height:1.15;
+    margin:0 0 0.5em;
+    color:var(--teal-900);
+  }
+  em, .italic{
+    font-style:italic;
+    color:var(--coral-600);
+  }
+  p{ margin:0 0 1em; color:var(--ink-soft); }
+  .container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  section{ padding:88px 0; }
+  .eyebrow{
+    display:inline-block;
+    font-family:var(--sans);
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.76rem;
+    font-weight:700;
+    color:var(--coral-600);
+    margin-bottom:18px;
+  }
+  .section-head{
+    max-width:680px;
+    margin:0 0 48px;
+  }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:15px 28px;
+    border-radius:999px;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:0.98rem;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{
+    background:var(--coral-500);
+    color:var(--sand-50);
+    box-shadow:0 14px 30px -12px rgba(224,114,90,0.65);
+  }
+  .btn-primary:hover{ background:var(--coral-600); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--sand-50);
+    border-color:rgba(251,248,242,0.55);
+  }
+  .btn-ghost:hover{ background:rgba(251,248,242,0.12); }
+  .btn-outline{
+    background:transparent;
+    color:var(--teal-900);
+    border-color:var(--teal-900);
+  }
+  .btn-outline:hover{ background:var(--teal-900); color:var(--sand-50); }
+  .btn-block{ width:100%; justify-content:center; }
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(246,239,228,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 0;
+  }
+  .wordmark{
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    line-height:1.05;
+  }
+  .wordmark .mark{
+    font-family:var(--serif);
+    font-size:1.4rem;
+    letter-spacing:0.06em;
+    color:var(--teal-900);
+    font-weight:600;
+  }
+  .wordmark .tagline{
+    font-size:0.66rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--coral-600);
+    margin-top:4px;
+    font-weight:700;
+  }
+  nav.primary-nav{
+    display:flex;
+    align-items:center;
+    gap:32px;
+  }
+  nav.primary-nav a{
+    text-decoration:none;
+    font-size:0.94rem;
+    font-weight:600;
+    color:var(--teal-900);
+    position:relative;
+  }
+  nav.primary-nav a:not(.nav-cta)::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-6px;
+    height:2px;
+    background:var(--coral-500);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.2s ease;
+  }
+  nav.primary-nav a:not(.nav-cta):hover::after{ transform:scaleX(1); }
+  .nav-cta{
+    background:var(--teal-900);
+    color:var(--sand-50) !important;
+    padding:10px 20px;
+    border-radius:999px;
+  }
+  .nav-cta:hover{ background:var(--coral-500); }
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background:var(--sand-50);
+    cursor:pointer;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    width:20px;
+    margin:0 auto;
+    background:var(--teal-900);
+    transition:transform 0.25s ease, opacity 0.25s ease;
+  }
+  .hamburger.is-active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.is-active span:nth-child(2){ opacity:0; }
+  .hamburger.is-active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 88px;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(224,114,90,0.35), transparent 45%),
+      radial-gradient(circle at 82% 0%, rgba(29,100,101,0.55), transparent 50%),
+      linear-gradient(160deg, var(--teal-950) 0%, var(--teal-900) 55%, var(--teal-800) 100%);
+    color:var(--sand-50);
+  }
+  /* // TODO: replace with real destination/lifestyle photography (hero background treatment) */
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(120deg, rgba(246,239,228,0.06) 0%, transparent 35%),
+      repeating-linear-gradient(45deg, rgba(246,239,228,0.035) 0 2px, transparent 2px 40px);
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:1; max-width:760px; }
+  .hero .eyebrow{ color:var(--sand-200); }
+  .hero h1{
+    color:var(--sand-50);
+    font-size:clamp(2.3rem, 5.2vw, 3.6rem);
+    max-width:14ch;
+  }
+  .hero h1 em{ color:#f4b9a6; font-style:italic; }
+  .hero p.lede{
+    color:rgba(251,248,242,0.88);
+    font-size:1.14rem;
+    max-width:52ch;
+    margin-bottom:34px;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:44px;
+  }
+  .hero-tagrow{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--sand-100);
+    letter-spacing:0.02em;
+    margin-bottom:18px;
+  }
+  .hero-sublines{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:0.92rem;
+    color:rgba(251,248,242,0.75);
+    border-top:1px solid rgba(251,248,242,0.2);
+    padding-top:18px;
+    max-width:48ch;
+  }
+
+  /* ---------- Photo placeholder blocks ---------- */
+  .photo-block{
+    border-radius:var(--radius-lg);
+    position:relative;
+    overflow:hidden;
+    min-height:180px;
+    background:
+      linear-gradient(135deg, var(--teal-800), var(--teal-700) 45%, var(--coral-500) 130%);
+  }
+  .photo-block.alt{
+    background:linear-gradient(135deg, var(--coral-500), var(--teal-800) 120%);
+  }
+  .photo-block::before{
+    content:"Photography placeholder";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:16px;
+    font-family:var(--sans);
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.75);
+    background:repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 12px, transparent 12px 24px);
+  }
+
+  /* ---------- Cards / grids common ---------- */
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .grid-2{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px;
+  }
+
+  .card{
+    background:var(--sand-50);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:32px;
+    box-shadow:var(--shadow-soft);
+    display:flex;
+    flex-direction:column;
+  }
+  .card .kicker{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--coral-600);
+    font-size:1.02rem;
+    margin-bottom:8px;
+  }
+  .card h3{ font-size:1.4rem; margin-bottom:12px; }
+  .card ul{ margin:18px 0 24px; display:flex; flex-direction:column; gap:10px; }
+  .card ul li{
+    padding-left:24px;
+    position:relative;
+    font-size:0.94rem;
+    color:var(--ink-soft);
+  }
+  .card ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--coral-500);
+  }
+  .card .card-cta{
+    margin-top:auto;
+    font-weight:700;
+    color:var(--teal-900);
+    text-decoration:none;
+    font-size:0.95rem;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .card .card-photo{ margin-bottom:22px; height:150px; }
+
+  section#ways{ background:var(--sand-100); }
+
+  /* ---------- Arrange (numbered items) ---------- */
+  section#arrange{ background:var(--teal-900); color:var(--sand-100); }
+  #arrange .section-head h2{ color:var(--sand-50); }
+  #arrange .section-head p{ color:rgba(251,248,242,0.78); }
+  .arrange-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(251,248,242,0.14);
+    border:1px solid rgba(251,248,242,0.14);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+  }
+  .arrange-item{
+    background:var(--teal-900);
+    padding:36px 30px;
+  }
+  .arrange-item .num{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--coral-500);
+    font-size:1.6rem;
+    display:block;
+    margin-bottom:10px;
+  }
+  .arrange-item h3{ color:var(--sand-50); font-size:1.18rem; margin-bottom:10px; }
+  .arrange-item p{ color:rgba(251,248,242,0.75); margin:0; font-size:0.94rem; }
+
+  /* ---------- How it works ---------- */
+  .steps-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+    counter-reset:step;
+  }
+  .step{
+    position:relative;
+    padding:34px 28px 28px;
+    background:var(--sand-50);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+  }
+  .step .step-num{
+    width:40px; height:40px;
+    border-radius:50%;
+    background:var(--teal-900);
+    color:var(--sand-50);
+    font-family:var(--serif);
+    font-style:italic;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+    font-size:1.05rem;
+  }
+  .step h3{ font-size:1.15rem; margin-bottom:8px; }
+  .step p{ font-size:0.94rem; margin:0; }
+
+  /* ---------- Example / typical build ---------- */
+  section#example{
+    background:var(--sand-200);
+  }
+  .example-wrap{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .example-copy .subhead{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--coral-600);
+    font-size:1.1rem;
+    margin-bottom:6px;
+  }
+  .example-copy h2{ margin-bottom:14px; }
+  .example-copy > p.statement{
+    font-size:1.15rem;
+    color:var(--teal-900);
+    font-family:var(--serif);
+    font-style:italic;
+    margin-bottom:26px;
+  }
+  .checklist{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 20px;
+    margin-bottom:30px;
+  }
+  .checklist li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:0.94rem;
+    color:var(--ink);
+    font-weight:600;
+  }
+  .checklist li::before{
+    content:"✓";
+    flex:none;
+    width:22px; height:22px;
+    border-radius:50%;
+    background:var(--teal-900);
+    color:var(--sand-50);
+    font-size:0.7rem;
+    display:flex; align-items:center; justify-content:center;
+    margin-top:2px;
+  }
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:24px;
+  }
+  .tag-chip{
+    padding:7px 16px;
+    border-radius:999px;
+    background:var(--sand-50);
+    border:1px solid var(--line);
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--teal-900);
+  }
+  .example-photo{
+    height:420px;
+  }
+
+  /* ---------- Nature & discovery ---------- */
+  section#nature{ background:var(--sand-100); }
+  .nature-card .card-photo{ height:170px; }
+  .nature-caption{
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin-top:-6px;
+    margin-bottom:12px;
+  }
+
+  /* ---------- Clear from the start ---------- */
+  section#clear{ background:var(--teal-950); color:var(--sand-100); }
+  #clear .section-head h2{ color:var(--sand-50); }
+  #clear .section-head p{ color:rgba(251,248,242,0.78); }
+  #clear .step{
+    background:rgba(251,248,242,0.05);
+    border-color:rgba(251,248,242,0.14);
+  }
+  #clear .step h3{ color:var(--sand-50); }
+  #clear .step p{ color:rgba(251,248,242,0.75); }
+  #clear .step .step-num{ background:var(--coral-500); color:var(--teal-950); }
+
+  /* ---------- Who it's for ---------- */
+  section#who{ background:var(--sand-100); }
+  .who-list{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px 32px;
+    counter-reset:who;
+  }
+  .who-list li{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 20px;
+    background:var(--sand-50);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    font-weight:600;
+    color:var(--teal-900);
+  }
+  .who-list li .who-num{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--coral-600);
+    font-size:1.2rem;
+    flex:none;
+    width:28px;
+  }
+
+  /* ---------- Build your trip form ---------- */
+  section#build{
+    background:linear-gradient(180deg, var(--sand-200), var(--sand-100));
+  }
+  .build-wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+  }
+  .build-intro h2 em{ color:var(--coral-600); font-style:italic; }
+  .build-note{
+    margin-top:28px;
+    padding:20px;
+    border-radius:var(--radius-md);
+    background:rgba(15,61,62,0.06);
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .build-note a{ color:var(--teal-900); font-weight:700; text-decoration:underline; }
+
+  form.trip-form{
+    background:var(--sand-50);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:36px;
+    box-shadow:var(--shadow-soft);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  form.trip-form .field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  form.trip-form .field.full{ grid-column:1 / -1; }
+  form.trip-form label{
+    font-size:0.82rem;
+    font-weight:700;
+    color:var(--teal-900);
+    letter-spacing:0.02em;
+  }
+  form.trip-form label .req{ color:var(--coral-600); }
+  form.trip-form input,
+  form.trip-form select,
+  form.trip-form textarea{
+    font-family:var(--sans);
+    font-size:0.96rem;
+    padding:13px 14px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background:var(--sand-50);
+    color:var(--ink);
+  }
+  form.trip-form input:focus,
+  form.trip-form select:focus,
+  form.trip-form textarea:focus{
+    outline:2px solid var(--coral-500);
+    outline-offset:1px;
+  }
+  form.trip-form textarea{ resize:vertical; min-height:100px; }
+  form.trip-form .submit-row{ grid-column:1 / -1; margin-top:6px; }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--teal-950);
+    color:rgba(251,248,242,0.82);
+    padding:64px 0 32px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:32px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(251,248,242,0.14);
+    margin-bottom:24px;
+  }
+  .footer-brand .mark{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    color:var(--sand-50);
+    letter-spacing:0.05em;
+  }
+  .footer-brand p{
+    font-family:var(--serif);
+    font-style:italic;
+    color:rgba(251,248,242,0.75);
+    margin-top:8px;
+    max-width:32ch;
+  }
+  .footer-col h4{
+    color:var(--sand-50);
+    font-family:var(--sans);
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:14px;
+  }
+  .footer-col a{
+    display:block;
+    color:rgba(251,248,242,0.78);
+    text-decoration:none;
+    font-size:0.92rem;
+    margin-bottom:10px;
+  }
+  .footer-col a:hover{ color:var(--coral-500); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.78rem;
+    color:rgba(251,248,242,0.5);
+  }
+  .photo-credit-note{
+    font-size:0.78rem;
+    color:rgba(251,248,242,0.5);
+    max-width:60ch;
+    margin-bottom:14px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    .grid-3, .arrange-grid, .steps-row, .checklist{ grid-template-columns:1fr 1fr; }
+    .example-wrap, .build-wrap{ grid-template-columns:1fr; }
+    .example-photo{ height:280px; order:-1; }
+    .who-list{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width: 760px){
+    section{ padding:64px 0; }
+    nav.primary-nav{
+      position:fixed;
+      top:73px; left:0; right:0;
+      background:var(--sand-50);
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      padding:8px 24px 24px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.2s ease, transform 0.2s ease;
+    }
+    nav.primary-nav.is-open{
+      opacity:1;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+    nav.primary-nav a{
+      padding:14px 0;
+      border-bottom:1px solid var(--line);
+    }
+    nav.primary-nav a:last-child{ border-bottom:none; }
+    nav.primary-nav a::after{ display:none; }
+    .nav-cta{
+      margin-top:12px;
+      text-align:center;
+      justify-content:center;
+    }
+    .hamburger{ display:flex; }
+    .grid-3, .grid-2, .arrange-grid, .steps-row, .checklist{ grid-template-columns:1fr; }
+    form.trip-form{ grid-template-columns:1fr; padding:26px; }
+    .hero{ padding:64px 0 56px; }
+    .footer-top{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="#top" class="wordmark">
+      <span class="mark">PLACE &amp; PULSE</span>
+      <span class="tagline">Celebrate · Offsite · Restore</span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#ways">Ways to travel</a>
+      <a href="#arrange">What we arrange</a>
+      <a href="#example">Example</a>
+      <a href="#build">Build your trip</a>
+      <a href="https://wa.me/529984015977" class="nav-cta" target="_blank" rel="noopener">WhatsApp us</a>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Tulum · Riviera Maya · Mexico</span>
+      <h1>Your people. <em>Your pace.</em> One remarkable place.</h1>
+      <p class="lede">We coordinate the villa, transportation, dining, wellness and experiences around your group—through one conversation.</p>
+      <div class="hero-actions">
+        <a href="#build" class="btn btn-primary">Build my trip →</a>
+        <a href="https://wa.me/529984015977" class="btn btn-ghost" target="_blank" rel="noopener">Talk to a concierge</a>
+      </div>
+      <p class="hero-tagrow">Celebrate · Offsite · Restore</p>
+      <div class="hero-sublines">
+        <span>One local coordination point for your stay, arrivals, meals and experiences.</span>
+        <span>Built around your dates, group and budget.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THREE WAYS IN ================= -->
+  <section id="ways">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Choose the feeling. We'll build the shape.</h2>
+        <p>Start with the reason your people are coming together. Every path is tailored, and a single trip can borrow from more than one.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <!-- // TODO: replace with real destination/lifestyle photography -->
+          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <span class="kicker">Celebrate</span>
+          <h3>Good energy, beautifully handled.</h3>
+          <p>Milestones and friend trips with the villa, arrivals, dinners, reservations and recovery time moving as one plan.</p>
+          <ul>
+            <li>Villas &amp; arrivals</li>
+            <li>Chef, bartender &amp; pre-stock</li>
+            <li>Beach-club and nightlife rhythm</li>
+          </ul>
+          <a href="#build" class="card-cta">Build this path →</a>
+        </article>
+
+        <article class="card">
+          <!-- // TODO: replace with real destination/lifestyle photography -->
+          <div class="photo-block card-photo alt" aria-hidden="true"></div>
+          <span class="kicker">Company Offsite</span>
+          <h3>Connection without the admin spiral.</h3>
+          <p>A considered base for teams and leadership groups, balancing focused time, shared meals, nature and breathing room.</p>
+          <ul>
+            <li>Meeting-ready stay</li>
+            <li>Transport &amp; group dining</li>
+            <li>Team experiences &amp; reset time</li>
+          </ul>
+          <a href="#build" class="card-cta">Build this path →</a>
+        </article>
+
+        <article class="card">
+          <!-- // TODO: replace with real destination/lifestyle photography -->
+          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <span class="kicker">Restore</span>
+          <h3>Come back lighter.</h3>
+          <p>Private wellness and reconnection shaped around your people—not a generic retreat package or a rigid schedule.</p>
+          <ul>
+            <li>Quiet villa or coastal stay</li>
+            <li>Movement, treatments &amp; nourishing food</li>
+            <li>Lagoons, reserve and slow days</li>
+          </ul>
+          <a href="#build" class="card-cta">Build this path →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT WE ARRANGE ================= -->
+  <section id="arrange">
+    <div class="container">
+      <div class="section-head center">
+        <h2>The trip, connected.</h2>
+        <p>Fewer tabs, fewer vendor conversations, fewer loose ends. Tell us what kind of weekend you want and we shape the moving parts around it.</p>
+      </div>
+
+      <div class="arrange-grid">
+        <div class="arrange-item">
+          <span class="num">01</span>
+          <h3>Stay</h3>
+          <p>Villas and design-forward stays matched to your group, dates and budget.</p>
+        </div>
+        <div class="arrange-item">
+          <span class="num">02</span>
+          <h3>Arrival</h3>
+          <p>Airport transfers and rental vehicles arranged before your group lands.</p>
+        </div>
+        <div class="arrange-item">
+          <span class="num">03</span>
+          <h3>Eat &amp; drink</h3>
+          <p>Private chefs, bartenders, reservations and villa grocery pre-stocking.</p>
+        </div>
+        <div class="arrange-item">
+          <span class="num">04</span>
+          <h3>Celebrate</h3>
+          <p>Beach clubs, nightlife and private moments built around your occasion.</p>
+        </div>
+        <div class="arrange-item">
+          <span class="num">05</span>
+          <h3>Restore</h3>
+          <p>Massage, yoga and private wellness experiences with breathing room.</p>
+        </div>
+        <div class="arrange-item">
+          <span class="num">06</span>
+          <h3>Explore</h3>
+          <p>Ruins, lagoons, reserves and boat days chosen for your group's pace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head center">
+        <h2>One brief. One plan. One person to call.</h2>
+        <p>Start with what you know. Dates can be flexible and the itinerary can evolve.</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Tell us the shape</h3>
+          <p>Dates, group size, budget and the energy you want.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>We build the options</h3>
+          <p>Stay, transportation and experiences fitted together.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>You choose the pulse</h3>
+          <p>Celebrate, connect, restore—or combine all three.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= A TYPICAL BUILD ================= -->
+  <section id="example">
+    <div class="container example-wrap">
+      <div class="example-copy">
+        <span class="subhead">12 friends · 4 days / 3 nights</span>
+        <h2>The villa weekend.</h2>
+        <p class="statement">Arrive ready. Leave restored.</p>
+
+        <ul class="checklist">
+          <li>Two private villas</li>
+          <li>Round-trip airport transport</li>
+          <li>Two rental SUVs</li>
+          <li>Grocery pre-stock</li>
+          <li>Private chef dinner</li>
+          <li>Private bartender</li>
+          <li>Beach-club reservation</li>
+          <li>Concierge support</li>
+        </ul>
+
+        <a href="#build" class="btn btn-primary">Build something like this →</a>
+
+        <div class="tag-row">
+          <span class="tag-chip">Caribbean coast</span>
+          <span class="tag-chip">Celebrate</span>
+          <span class="tag-chip">Stay well</span>
+        </div>
+      </div>
+
+      <!-- // TODO: replace with real destination/lifestyle photography -->
+      <div class="photo-block example-photo" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ================= NATURE & DISCOVERY ================= -->
+  <section id="nature">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Beyond the villa.</h2>
+        <p>Real places from the Riviera Maya and nearby reserves—no mountains, waterfalls or invented geography.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card nature-card">
+          <!-- // TODO: replace with real destination/lifestyle photography -->
+          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <h3>Nopalitos &amp; lagoon days</h3>
+          <p>Calm water, mangroves and an unhurried day away from the hotel zone. Access and route confirmed locally.</p>
+          <p class="nature-caption">Regional lagoon reference image; exact access and route confirmed locally.</p>
+        </article>
+
+        <article class="card nature-card">
+          <!-- // TODO: replace with real destination/lifestyle photography -->
+          <div class="photo-block card-photo alt" aria-hidden="true"></div>
+          <h3>Sian Ka'an by water</h3>
+          <p>A UNESCO biosphere reserve of mangrove channels, coastal wetlands and Caribbean water.</p>
+        </article>
+
+        <article class="card nature-card">
+          <!-- // TODO: replace with real destination/lifestyle photography -->
+          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <h3>Punta Laguna jungle</h3>
+          <p>Lagoon, Maya forest and locally guided wildlife experiences, subject to conservation rules.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLEAR FROM THE START ================= -->
+  <section id="clear">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Concierge care, without the mystery.</h2>
+        <p>We are building the partner bench carefully. We only present specific villas and services after checking fit, availability and current terms for your dates.</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>A real person replies</h3>
+          <p>Your brief opens in WhatsApp and reaches Ricardo directly. We aim to acknowledge new inquiries within one business day.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>Options before assumptions</h3>
+          <p>No invented availability, fixed package price or supplier promise. Your proposal is built after feasibility checks.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>One accountable thread</h3>
+          <p>Stay, arrivals and experiences are coordinated through one conversation, with independent partner terms made clear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHO IT'S FOR ================= -->
+  <section id="who">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Different reasons. Same easy arrival.</h2>
+        <p>We tailor the balance between celebration, connection and restoration to the group leader's brief.</p>
+      </div>
+
+      <ul class="who-list">
+        <li><span class="who-num">01</span> Friends' trips</li>
+        <li><span class="who-num">02</span> Birthdays</li>
+        <li><span class="who-num">03</span> Bachelor &amp; bachelorette weekends</li>
+        <li><span class="who-num">04</span> Company offsites</li>
+        <li><span class="who-num">05</span> Leadership retreats</li>
+        <li><span class="who-num">06</span> Wellness escapes</li>
+        <li><span class="who-num">07</span> Couples &amp; family groups</li>
+        <li><span class="who-num">08</span> Mixed-purpose weekends</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= TRIP BUILDER FORM ================= -->
+  <section id="build">
+    <div class="container build-wrap">
+      <div class="build-intro">
+        <span class="eyebrow">Build your trip</span>
+        <h2>Give us the outline. <em>We'll shape the rest.</em></h2>
+        <p>No commitment. Your message opens directly in WhatsApp so you know it reached a real person.</p>
+
+        <div class="build-note">
+          Your details are not stored on this website. By continuing, you choose to send them through WhatsApp. See our <a href="privacy.html">Privacy Notice</a>.
+        </div>
+      </div>
+
+      <form class="trip-form" id="tripForm">
+        <div class="field">
+          <label for="tf-name">Your name <span class="req">*</span></label>
+          <input type="text" id="tf-name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="tf-dates">Travel dates <span class="req">*</span></label>
+          <input type="text" id="tf-dates" name="dates" placeholder="e.g. Nov 12–16, 2026" required>
+        </div>
+
+        <div class="field">
+          <label for="tf-guests">Guests <span class="req">*</span></label>
+          <input type="number" id="tf-guests" name="guests" min="1" required>
+        </div>
+
+        <div class="field">
+          <label for="tf-style">Trip style <span class="req">*</span></label>
+          <select id="tf-style" name="style" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Celebrate">Celebrate</option>
+            <option value="Company offsite">Company offsite</option>
+            <option value="Restore / wellness">Restore / wellness</option>
+            <option value="Mixed">Mixed</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="tf-budget">Accommodation budget</label>
+          <select id="tf-budget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option value="Under $1,000/night">Under $1,000/night</option>
+            <option value="$1,000–$1,500/night">$1,000–$1,500/night</option>
+            <option value="$1,500–$2,500/night">$1,500–$2,500/night</option>
+            <option value="$2,500+/night">$2,500+/night</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="tf-email">Email <span class="req">*</span></label>
+          <input type="email" id="tf-email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="field full">
+          <label for="tf-notes">Anything we should know?</label>
+          <textarea id="tf-notes" name="notes" placeholder="Occasion, must-haves, accessibility needs, dietary notes..."></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary btn-block">Send trip brief on WhatsApp →</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="mark">PLACE &amp; PULSE</span>
+        <p>Your people. Your pace. One remarkable place.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/529984015977" target="_blank" rel="noopener">+52 998 401 5977</a>
+        <a href="mailto:aguilarricardo747@gmail.com">aguilarricardo747@gmail.com</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+
+    <p class="photo-credit-note">Photography credits: to be added once final imagery is licensed and placed.</p>
+
+    <div class="footer-bottom">
+      <span>© 2026 Place &amp; Pulse · Tulum · Riviera Maya · Mexico</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('hamburgerBtn');
+    var nav = document.getElementById('primaryNav');
+    if (!btn || !nav) return;
+
+    btn.addEventListener('click', function(){
+      var isOpen = nav.classList.toggle('is-open');
+      btn.classList.toggle('is-active', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  (function(){
+    var form = document.getElementById('tripForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var name = form.name.value.trim();
+      var dates = form.dates.value.trim();
+      var guests = form.guests.value.trim();
+      var style = form.style.value;
+      var budget = form.budget.value;
+      var email = form.email.value.trim();
+      var notes = form.notes.value.trim();
+
+      var lines = [
+        'Hi Place & Pulse, here is our trip brief:',
+        '',
+        'Name: ' + name,
+        'Travel dates: ' + dates,
+        'Guests: ' + guests,
+        'Trip style: ' + style,
+        'Accommodation budget: ' + (budget || 'Not specified'),
+        'Email: ' + email
+      ];
+
+      if (notes) {
+        lines.push('', 'Notes: ' + notes);
+      }
+
+      var message = lines.join('\n');
+      var url = 'https://wa.me/529984015977?text=' + encodeURIComponent(message);
+      window.open(url, '_blank', 'noopener');
+    });
+  })();
+</script>
+
+</body>
+</html>
