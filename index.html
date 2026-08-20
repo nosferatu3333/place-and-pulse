@@ -11,15 +11,6 @@
 <meta property="og:description" content="Villa, transport, dining, wellness and experiences for group trips in Tulum — one concierge, one conversation.">
 <meta name="twitter:card" content="summary">
 
-<!--
-  Photography note: the live version of this site credits its photographers via
-  Wikimedia Commons / Unsplash. This rebuild is fully self-contained and does not
-  hotlink any external images, so every photographic block below is a CSS-only
-  gradient placeholder. Before launch, replace each marked block with properly
-  licensed destination/lifestyle photography and restore full photo credits
-  (see the footer "Photography credits" line).
--->
-
 <style>
   :root{
     --teal-950:#0a2c2d;
@@ -219,12 +210,10 @@
     overflow:hidden;
     padding:96px 0 88px;
     background:
-      radial-gradient(circle at 18% 20%, rgba(224,114,90,0.35), transparent 45%),
-      radial-gradient(circle at 82% 0%, rgba(29,100,101,0.55), transparent 50%),
-      linear-gradient(160deg, var(--teal-950) 0%, var(--teal-900) 55%, var(--teal-800) 100%);
+      linear-gradient(160deg, rgba(10,44,45,0.85) 0%, rgba(15,61,62,0.6) 55%, rgba(29,100,101,0.4) 100%),
+      url('images/hero-sian-kaan-aerial-real.webp') center/cover no-repeat;
     color:var(--sand-50);
   }
-  /* // TODO: replace with real destination/lifestyle photography (hero background treatment) */
   .hero::after{
     content:"";
     position:absolute;
@@ -285,6 +274,11 @@
   .photo-block.alt{
     background:linear-gradient(135deg, var(--coral-500), var(--teal-800) 120%);
   }
+  .photo-block.has-photo{
+    background-size:cover;
+    background-position:center;
+  }
+  .photo-block.has-photo::before{ content:none; }
   .photo-block::before{
     content:"Photography placeholder";
     position:absolute;
@@ -759,8 +753,7 @@
 
       <div class="grid-3">
         <article class="card">
-          <!-- // TODO: replace with real destination/lifestyle photography -->
-          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <div class="photo-block card-photo has-photo" style="background-image:url('images/group-poolside-cocktails-real.webp')" role="img" aria-label="Friends sharing drinks beside a tropical pool"></div>
           <span class="kicker">Celebrate</span>
           <h3>Good energy, beautifully handled.</h3>
           <p>Milestones and friend trips with the villa, arrivals, dinners, reservations and recovery time moving as one plan.</p>
@@ -773,8 +766,7 @@
         </article>
 
         <article class="card">
-          <!-- // TODO: replace with real destination/lifestyle photography -->
-          <div class="photo-block card-photo alt" aria-hidden="true"></div>
+          <div class="photo-block card-photo alt has-photo" style="background-image:url('images/group-tropical-villa-pool-real.webp')" role="img" aria-label="Modern tropical villa and pool"></div>
           <span class="kicker">Company Offsite</span>
           <h3>Connection without the admin spiral.</h3>
           <p>A considered base for teams and leadership groups, balancing focused time, shared meals, nature and breathing room.</p>
@@ -787,8 +779,7 @@
         </article>
 
         <article class="card">
-          <!-- // TODO: replace with real destination/lifestyle photography -->
-          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <div class="photo-block card-photo has-photo" style="background-image:url('images/group-oceanfront-yoga-real.webp')" role="img" aria-label="Small group practicing yoga beside the Caribbean"></div>
           <span class="kicker">Restore</span>
           <h3>Come back lighter.</h3>
           <p>Private wellness and reconnection shaped around your people—not a generic retreat package or a rigid schedule.</p>
@@ -902,8 +893,7 @@
         </div>
       </div>
 
-      <!-- // TODO: replace with real destination/lifestyle photography -->
-      <div class="photo-block example-photo" aria-hidden="true"></div>
+      <div class="photo-block example-photo has-photo" style="background-image:url('images/group-poolside-dinner-real.webp')" role="img" aria-label="Group sharing a relaxed outdoor dinner"></div>
     </div>
   </section>
 
@@ -917,23 +907,20 @@
 
       <div class="grid-3">
         <article class="card nature-card">
-          <!-- // TODO: replace with real destination/lifestyle photography -->
-          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <div class="photo-block card-photo has-photo" style="background-image:url('images/nopalitos-lagoon-real.webp')" role="img" aria-label="A lagoon in Quintana Roo"></div>
           <h3>Nopalitos &amp; lagoon days</h3>
           <p>Calm water, mangroves and an unhurried day away from the hotel zone. Access and route confirmed locally.</p>
           <p class="nature-caption">Regional lagoon reference image; exact access and route confirmed locally.</p>
         </article>
 
         <article class="card nature-card">
-          <!-- // TODO: replace with real destination/lifestyle photography -->
-          <div class="photo-block card-photo alt" aria-hidden="true"></div>
+          <div class="photo-block card-photo alt has-photo" style="background-image:url('images/sian-kaan-punta-allen-real.webp')" role="img" aria-label="Aerial photograph of Sian Ka'an Biosphere Reserve"></div>
           <h3>Sian Ka'an by water</h3>
           <p>A UNESCO biosphere reserve of mangrove channels, coastal wetlands and Caribbean water.</p>
         </article>
 
         <article class="card nature-card">
-          <!-- // TODO: replace with real destination/lifestyle photography -->
-          <div class="photo-block card-photo" aria-hidden="true"></div>
+          <div class="photo-block card-photo has-photo" style="background-image:url('images/punta-laguna-jungle-real.webp')" role="img" aria-label="Punta Laguna lagoon and forest"></div>
           <h3>Punta Laguna jungle</h3>
           <p>Lagoon, Maya forest and locally guided wildlife experiences, subject to conservation rules.</p>
         </article>
@@ -1083,7 +1070,7 @@
       </div>
     </div>
 
-    <p class="photo-credit-note">Photography credits: to be added once final imagery is licensed and placed.</p>
+    <p class="photo-credit-note">Photography is placeholder destination/lifestyle imagery pending final licensing and site-specific photo shoots.</p>
 
     <div class="footer-bottom">
       <span>© 2026 Place &amp; Pulse · Tulum · Riviera Maya · Mexico</span>
